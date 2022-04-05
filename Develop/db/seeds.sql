@@ -17,11 +17,11 @@ VALUES ("Junior Engineer", 75000, 1),
        ("Director of Structural Department", 150000, 4);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Christine", "Placek", 1, 1),
-       ("Emily", "Eppley", 1, 2),
-       ("Erin", "Gilbert", 2, null),
-       ("Kirsten", "Hansen", 2, 3),
-       ("Abigail", "Olivieri", 2, 4),
-       ("Carol", "Boehm", 3, null),
-       ("Kate", "Bailey", 3, null),
-       ("Pat", "Carney", 3, null)
+VALUES ("Christine", "Placek", 1, 6),
+       ("Emily", "Eppley", 2, 3),
+       ("Erin", "Gilbert", 3, null),
+       ("Kirsten", "Hansen", 4, 7),
+       ("Abigail", "Olivieri", 5, 8),
+       ("Carol", "Boehm", 6, null),
+       ("Kate", "Bailey", 7, null),
+       ("Pat", "Carney", 8, null)
