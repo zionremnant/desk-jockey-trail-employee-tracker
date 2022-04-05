@@ -160,3 +160,15 @@ function addDepartment() {
   });
 }
 // add employee(s)
+currentRoles = [];
+currentManagers = [];
+
+function employeeRole() {
+  connection.query("SELECT * FROM role", (err, answer) => {
+    if (err) throw err;
+    for (var i = 0; i < answer.length; i++) {
+      currentRoles.push(answer[i].title);
+    }
+  });
+  return currentRoles;
+}
