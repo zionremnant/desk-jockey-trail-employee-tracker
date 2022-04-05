@@ -1,6 +1,6 @@
 // dependencies
 const inquirer = require("inquirer");
-const mysql = require("mysql2");
+const mysql = require("mysql");
 const consoleTable = require("console.table");
 
 // create connection info for database
@@ -56,4 +56,40 @@ function start() {
         connection.end();
       }
     });
+}
+// view roles in console
+function viewRoles() {
+  connection.query(
+    "SELECT employee.first_name AS FirstName, employee.last_name AS LastName, role.title AS Role FROM employee JOIN role ON employee.role_id = role.id;",
+    (err, answer) => {
+      if (err) throw err;
+      console.log("\n");
+      console.table(answer);
+      start();
+    }
+  );
+}
+// view depts in console
+function viewDepartments() {
+  connection.query(
+    "SELECT employee.first_name AS FirstName, employee.last_name AS LastName, department.name AS Department FROM employee JOIN role ON employee.role_id = role.id JOIN department ON role.department_id = department.id ORDER BY employee.id;",
+    (err, answer) => {
+      if (err) throw err;
+      console.log("\n");
+      console.table(answer);
+      start();
+    }
+  );
+}
+// view employees in console
+function viewEmployees() {
+  connection.query(
+    "SELECT employee.first_name AS FirstName, employee.last_name AS LastName, role.title AS Role, department.name AS Department, CONCAT(e.first_name, ' ' ,e.last_name) AS Manager FROM employee INNER JOIN role ON role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee e on employee.manager_id = e.id;",
+    (err, answer) => {
+      if (err) throw err;
+      console.log("\n");
+      console.table(answer);
+      start();
+    }
+  );
 }
