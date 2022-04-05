@@ -1,13 +1,10 @@
-DROP DATABASE IF EXISTS employees_db;
-CREATE DATABASE employees_db;
-
 USE employees_db;
 
 INSERT INTO department (name)
 VALUES ("Civil"),
        ("Electrical"),
        ("Mechanical"),
-       ("Structural";
+       ("Structural");
        
 INSERT INTO role (title, salary, department_id)
 VALUES ("Junior Engineer", 75000, 1),
