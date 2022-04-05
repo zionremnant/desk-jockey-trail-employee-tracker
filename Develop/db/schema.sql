@@ -20,7 +20,7 @@ CREATE TABLE role (
     FOREIGN KEY (department_id) REFERENCES department (id)
     );
 
--- employee role table
+-- employee table
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(20),
