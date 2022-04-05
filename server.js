@@ -163,6 +163,19 @@ function addDepartment() {
 currentRoles = [];
 currentManagers = [];
 
+function employeeManager() {
+  connection.query(
+    "SELECT first_name, last_name FROM employee WHERE manager_id IS NULL",
+    (err, answer) => {
+      if (err) throw err;
+      for (var i = 0; i < answer.length; i++) {
+        currentManagers.push(`${answer[i].first_name} ${answer[i].last_name}`);
+      }
+    }
+  );
+  return currentManagers;
+}
+
 function employeeRole() {
   connection.query("SELECT * FROM role", (err, answer) => {
     if (err) throw err;
@@ -171,4 +184,57 @@ function employeeRole() {
     }
   });
   return currentRoles;
+}
+// update roles
+function updateEmployeeRole() {
+  connection.query("SELECT * FROM employee", function (err, employeeData) {
+    if (err) throw err;
+    connection.query("SELECT * FROM role", function (err, roleData) {
+      if (err) throw err;
+      inquirer
+        .prompt([
+          {
+            name: "employeeName",
+            type: "rawlist",
+            message: "Which employee are you updating?",
+            choices: employeeData.map(function (data) {
+              return `${data.first_name} ${data.last_name}`;
+            }),
+          },
+          {
+            name: "employeeRole",
+            type: "rawlist",
+            message: "What is the employee's new role?",
+            choices: roleData.map(function (data) {
+              return data.title;
+            }),
+          },
+        ])
+        .then((answers) => {
+          connection.query(
+            "UPDATE employee SET ? WHERE ?",
+            [
+              {
+                role_id: employeeData.find(function (data) {
+                  return data.title === answers.employeeRole;
+                }),
+              },
+              {
+                id: roleData.find(function (data) {
+                  return (
+                    `${data.first_name} ${data.last_name}` ===
+                    answers.employeeName
+                  );
+                }),
+              },
+            ],
+            function (err) {
+              if (err) throw err;
+              console.log("\n Employee role updated! \n");
+              start();
+            }
+          );
+        });
+    });
+  });
 }
