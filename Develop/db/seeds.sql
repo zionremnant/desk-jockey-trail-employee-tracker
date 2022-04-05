@@ -3,20 +3,28 @@ CREATE DATABASE employees_db;
 
 USE employees_db;
 
-CREATE TABLE department (
-    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    name VARCHAR(20) NOT NULL);
+INSERT INTO department (name)
+VALUES ("Civil"),
+       ("Electrical"),
+       ("Mechanical"),
+       ("Structural";
+       
+INSERT INTO role (title, salary, department_id)
+VALUES ("Junior Engineer", 75000, 1),
+       ("Junior Engineer", 75000, 2),
+       ("Senior Engineer", 100000, 2),
+       ("Senior Engineer", 100000, 3),
+       ("Senior Engineer", 100000, 4),
+       ("Director of Civil Department", 150000, 1),
+       ("Director of Mechanical Department", 150000, 3),
+       ("Director of Structural Department", 150000, 4);
 
-CREATE TABLE role (
-    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    title VARCHAR(30) NOT NULL,
-    salary DECIMAL(9, 2) NOT NULL,
-    department_id INT NOT NULL
-    );
-
-CREATE TABLE employee (
-    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    first_name VARCHAR(20),
-    last_name VARCHAR(20),
-    role_id INT,
-    manager_id INT NULL);       
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Christine", "Placek", 1, 1),
+       ("Emily", "Eppley", 1, 2),
+       ("Erin", "Gilbert", 2, null),
+       ("Kirsten", "Hansen", 2, 3),
+       ("Abigail", "Olivieri", 2, 4),
+       ("Carol", "Boehm", 3, null),
+       ("Kate", "Bailey", 3, null),
+       ("Pat", "Carney", 3, null)
