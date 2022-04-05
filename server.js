@@ -93,3 +93,70 @@ function viewEmployees() {
     }
   );
 }
+
+// add role
+function addRole() {
+  connection.query(
+    "SELECT role.title AS Title, role.salary AS Salary FROM role",
+    (err, data) => {
+      if (err) throw err;
+      inquirer
+        .prompt([
+          {
+            name: "roleTitle",
+            type: "input",
+            message: "What is the title of the role?",
+          },
+          {
+            name: "roleSalary",
+            type: "input",
+            message: "What is the salary of the role?",
+          },
+        ])
+        .then((answers) => {
+          connection.query(
+            "INSERT INTO role SET ?",
+            {
+              title: answers.roleTitle,
+              salary: answers.roleSalary,
+            },
+            (err) => {
+              if (err) throw err;
+              console.log("\n The role added! \n");
+
+              start();
+            }
+          );
+        });
+    }
+  );
+}
+
+// add dept
+function addDepartment() {
+  connection.query("SELECT department.name FROM department", (err, data) => {
+    if (err) throw err;
+    inquirer
+      .prompt([
+        {
+          name: "departmentName",
+          type: "input",
+          message: "What is the Department name?",
+        },
+      ])
+      .then((answer) => {
+        connection.query(
+          "INSERT INTO department SET ?",
+          {
+            name: answer.departmentName,
+          },
+          (err) => {
+            if (err) throw err;
+            console.log("\n The department added! \n");
+            start();
+          }
+        );
+      });
+  });
+}
+// add employee(s)
