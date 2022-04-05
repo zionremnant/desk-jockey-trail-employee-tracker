@@ -40,11 +40,11 @@ Database schema contains the following three tables:
 
 ## Screenshot & Demo
 
-<img width="566" alt="Screen Shot 2022-04-05 at 1 46 45 AM" src="https://user-images.githubusercontent.com/99617307/161716965-a1be0a88-40fe-4196-a843-3999133d594f.png">
+<img width="566" alt="Screen Shot 2022-04-05 at 1 59 54 AM" src="https://user-images.githubusercontent.com/99617307/161718584-b7534fb8-6d15-4ded-90a1-9dcf8f251355.png">
 
-<img width="566" alt="Screen Shot 2022-04-05 at 1 47 11 AM" src="https://user-images.githubusercontent.com/99617307/161717005-4ace6699-e9a4-445d-85f0-685cac1f4fb3.png">
+<img width="566" alt="Screen Shot 2022-04-05 at 2 00 14 AM" src="https://user-images.githubusercontent.com/99617307/161718607-48a02813-ac07-449e-8084-cf0cee354740.png">
 
-https://user-images.githubusercontent.com/99617307/161716893-9e6f6fce-ce22-4f2e-ba32-9210764a95a7.mp4
+https://user-images.githubusercontent.com/99617307/161718374-b535d2bf-e05d-4578-893b-4d9c189bf212.mp4
 
 ## Links
 
