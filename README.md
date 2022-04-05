@@ -40,6 +40,10 @@ Database schema contains the following three tables:
 
 ## Screenshot & Demo
 
+<iframe src="https://drive.google.com/file/d/1nOpvqoxhGzGasXdMq9APvGeIxoI5HBN5/preview" width="640" height="480"></iframe>
+
 ## Links
 
--
+- https://desk-jockey-trail-employee-tra.herokuapp.com/
+- https://drive.google.com/file/d/1nOpvqoxhGzGasXdMq9APvGeIxoI5HBN5/view
+- https://github.com/zionremnant/desk-jockey-trail-employee-tracker
